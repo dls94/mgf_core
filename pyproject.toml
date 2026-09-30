@@ -1,0 +1,32 @@
+[project]
+name = "mgf-core"
+version = "0.1.0"
+description = "Core domain and application logic for Magnify Music"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "ruff>=0.16.6",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.19,<0.12.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "magnify_core"
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+extend-exclude = ["__pycache__"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["magnify_core"]
